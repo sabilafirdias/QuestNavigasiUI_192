@@ -10,5 +10,35 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 enum class Navigasi {
-
+    Formulirku,
+    Detail
 }
+
+@Composable
+fun DataApp(
+    navController: NavHostController = rememberNavController()
+){
+    Scaffold { isiRuang->
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulirku.name,
+
+            modifier = Modifier.padding(isiRuang)){
+            composable(route = Navigasi.Formulirku.name){
+                _root_ide_package_.com.example.prak6.view.FormIsian(
+                    OnSubmitBtnClick = {
+                        navController.navigate(Navigasi.Detail.name)
+                    }
+                )
+            }
+            composable(route = Navigasi.Detail.name){
+                _root_ide_package_.com.example.prak6.view.TampilData(
+                    onBackBtnClick = {
+                        cancelAndBackToFormulir(navController)
+                    }
+                )
+            }
+        }
+    }
+}
+
