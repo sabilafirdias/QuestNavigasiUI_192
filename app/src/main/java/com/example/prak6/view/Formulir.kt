@@ -40,4 +40,6 @@ fun FormIsian(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     colorResource(id = R.color.ungu2))
             )}
-    )
+    ){ isiRuang ->
+
+}
